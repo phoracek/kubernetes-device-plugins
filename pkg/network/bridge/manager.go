@@ -14,7 +14,7 @@ const (
 
 type BridgeLister struct{}
 
-func (pci BridgeLister) Discover() *dpm.DeviceMap {
+func (bl BridgeLister) Discover() *dpm.DeviceMap {
 	var devices = make(dpm.DeviceMap)
 	for i := 0; i < nicsPoolSize; i++ {
 		devices[bridgeName] = append(devices[bridgeName], fmt.Sprintf("%s-nic%d", bridgeName, i))
@@ -23,6 +23,6 @@ func (pci BridgeLister) Discover() *dpm.DeviceMap {
 	return &devices
 }
 
-func (pci BridgeLister) NewDevicePlugin(bridge string, nics []string) dpm.DevicePluginInterface {
+func (bl BridgeLister) NewDevicePlugin(bridge string, nics []string) dpm.DevicePluginInterface {
 	return dpm.DevicePluginInterface(newDevicePlugin(bridge, nics))
 }

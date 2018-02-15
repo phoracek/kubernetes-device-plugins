@@ -32,6 +32,15 @@ type DevicePlugin struct {
 	Update       chan Message
 }
 
+func NewDevicePlugin(resourceNamespace, deviceClass string, devices []*pluginapi.Device) DevicePlugin {
+	return DevicePlugin{
+		Socket:       pluginapi.DevicePluginPath + deviceClass,
+		Devs:         devices,
+		ResourceName: resourceNamespace + deviceClass,
+		StopCh:       make(chan interface{}),
+	}
+}
+
 // start starts the gRPC server of the device plugin.
 func (dpi *DevicePlugin) start() error {
 	glog.V(3).Info("Starting the DPI gRPC server")
