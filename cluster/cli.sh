@@ -4,4 +4,4 @@ node=$1
 
 source ./cluster/helpers.sh
 
-$gocli ssh $node
+$gocli_interative ssh $node
