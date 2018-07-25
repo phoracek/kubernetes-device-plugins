@@ -86,3 +86,9 @@ Access cluster node via ssh:
 ```
 ./cluster/cli.sh node01
 ```
+
+Run e2e tests (on running cluster):
+
+```
+pytest tests
+```
