@@ -3,7 +3,17 @@ language: go
 go: 1.9.x
 go_import_path: github.com/kubevirt/kubernetes-device-plugins
 
-script: make build test docker-build
+install:
+  - sudo pip install pytest
+  - sudo pip install kubernetes
+
+script:
+  - make build test docker-build
+  - ls
+  - pwd
+  - make cluster-up
+  - sleep 20  # TODO: block until cluster ready
+  - make functest
 
 deploy:
   - provider: script
