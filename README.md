@@ -56,3 +56,33 @@ Test specific modules:
 ```
 make test-cmd-vfio
 ```
+
+Deploy local Kubernetes cluster:
+
+```
+make cluster-up
+```
+
+Destroy local Kubernetes cluster:
+
+```
+make cluster-down
+```
+
+Build device plugin image and push it to local Kubernetes cluster registry:
+
+```
+make cluster-sync-network-bridge
+```
+
+Access cluster kubectl:
+
+```
+./cluster/kubectl.sh ...
+```
+
+Access cluster node via ssh:
+
+```
+./cluster/cli.sh node01
+```
