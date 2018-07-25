@@ -1,4 +1,4 @@
-#!/usr/bin/bash -ex
+#!/usr/bin/bash -e
 
 plugin=$1
 
