@@ -90,5 +90,5 @@ Access cluster node via ssh:
 Run e2e tests (on running cluster):
 
 ```
-pytest tests
+make functests
 ```
